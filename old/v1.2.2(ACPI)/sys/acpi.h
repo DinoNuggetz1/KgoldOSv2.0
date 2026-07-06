@@ -1,0 +1,6 @@
+#ifndef ACPI_H
+#define ACPI_H
+char* ACPI_reader(void);
+struct XSDP_t;
+void ACPI_DUMP(void);
+#endif
