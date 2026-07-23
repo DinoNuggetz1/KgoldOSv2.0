@@ -61,7 +61,7 @@ void shell(unsigned char scancode) {
             char *port_str = cmd + 4;
             int num = atoi(port_str);
             print_char('\n',0x0e);
-            print(num);
+            print_int(num, 0x0e);
             print_char('\n',0x0e);
             uint16_t port = (uint16_t)num;
             long result = inportb(port);
@@ -109,7 +109,6 @@ void shell(unsigned char scancode) {
         else if (cmp(cmd, "logo") == 0) {
             print_string("\n", 0x0F);
             print_string(logo, 0x0F);
-            handler();
             handled = 1;
         }
 
