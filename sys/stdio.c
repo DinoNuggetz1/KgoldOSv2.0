@@ -16,7 +16,7 @@ const int char_w = 22;
 const int char_h = 28;
 int gui_x = 0;
 int gui_y = 0;
-const int gui_width_limit = 1000;
+
 __attribute__((section(".rodata"))); char *logo =
 "||   ||  (_)\n"
 "||___||  | |\n"
@@ -248,9 +248,16 @@ void print_char(char c, unsigned char color) {
             draw_let(fb, framebuffer_pitch, gui_x, gui_y, data);
         }
         gui_x += 15;
-        if (gui_x > gui_width_limit) {
+        if (gui_x > framebuffer_width) {
             gui_x = 100;
             gui_y += 25;
+        }
+        if (gui_y > framebuffer_height) {
+            draw_let(fb, framebuffer_pitch, gui_x, gui_y, data);
+            draw_image(framebuffer, framebuffer_pitch, 0, 0, IMG_W, IMG_H, Background);
+            draw_image(framebuffer, framebuffer_pitch, 400, 250, 196, 225, Untitled);
+            draw_image(framebuffer, framebuffer_pitch, 0, framebuffer_height - 50, framebuffer_width, 50, Taskbar);
+                gui_y =0;
         }
     }
 }
