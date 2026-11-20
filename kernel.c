@@ -163,7 +163,7 @@ void kernel_main(uint64_t framebuffer_base, uint64_t framebuffer_pitch,uint64_t 
     abet();
     y = 0; x = 0;
     print_string(logo, 0x9F);
-    print_string("\nWelcome To the Shell type ""help"" for a list of commands\nVersion 1.2.5 (UEFI) GNU 3 (x86)", 0x05);
+    print_string("\nWelcome To the Shell(KGoldOS) type ""help"" for a list of command\nVersion 1.2.5 (UEFI) GNU 3 (x86)", 0x05);
     print_string("Cpu type: ", 0x0);
     hardwarefind();
     print_string(vendor,0x0);
